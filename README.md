@@ -1,5 +1,10 @@
 # Random Bible Verse
 
+[![npm version](https://img.shields.io/npm/v/random-bible-verse)](https://www.npmjs.com/package/random-bible-verse)
+[![npm downloads](https://img.shields.io/npm/dm/random-bible-verse)](https://www.npmjs.com/package/random-bible-verse)
+[![bundle size](https://img.shields.io/bundlejs/size/random-bible-verse)](https://bundlejs.com/?q=random-bible-verse)
+[![license](https://img.shields.io/npm/l/random-bible-verse)](LICENSE)
+
 A Bible verse of the day widget for church websites, ministry pages and blogs. Use it as a
 copy-and-paste embed, a web component or a React component.
 
