@@ -1,8 +1,8 @@
 # Publishes the package to npm when a version tag is pushed (git tag v1.0.0 && git push --tags).
 #
-# Setup: Settings > Environments > "npm", secret NPM_TOKEN
-# (a granular token of the npm account randombible, publish rights on random-bible-verse only).
-# After the first release, switch the package to npm trusted publishing and drop the token.
+# Publishing uses npm trusted publishing: npm trusts this workflow through GitHub's OIDC token, so
+# no npm token is stored here, and every release carries provenance. The package's trusted
+# publisher on npmjs.com is RandomBible/random-bible-verse, publish.yml, environment "npm".
 name: Publish
 
 on:
@@ -11,7 +11,7 @@ on:
 
 permissions:
   contents: read
-  id-token: write # npm provenance
+  id-token: write # trusted publishing and provenance
 
 jobs:
   npm:
@@ -24,6 +24,9 @@ jobs:
         with:
           node-version: 22
           registry-url: https://registry.npmjs.org
+
+      # Trusted publishing needs npm 11.5.1 or later; Node 22 ships npm 10.
+      - run: npm install -g npm@11
 
       - name: Tag matches package.json version
         run: |
@@ -38,5 +41,3 @@ jobs:
       - run: npm test --if-present
 
       - run: npm publish --provenance --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
