@@ -1,0 +1,61 @@
+{
+  "name": "random-bible-verse",
+  "version": "0.1.0",
+  "description": "Bible verse of the day widget for websites, in six layouts. Embed script, web component and React component.",
+  "keywords": [
+    "bible",
+    "bible-verse",
+    "verse-of-the-day",
+    "scripture",
+    "church",
+    "widget",
+    "web-component",
+    "custom-element",
+    "react"
+  ],
+  "homepage": "https://random-bible.com/bible-verse-widget/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RandomBible/random-bible-verse.git"
+  },
+  "bugs": "https://github.com/RandomBible/random-bible-verse/issues",
+  "author": "Random Bible (https://random-bible.com/)",
+  "license": "MIT",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./react": {
+      "types": "./dist/react.d.ts",
+      "default": "./dist/react.js"
+    },
+    "./widget.js": "./dist/widget.js",
+    "./package.json": "./package.json"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "typesVersions": {
+    "*": {
+      "react": [
+        "./dist/react.d.ts"
+      ]
+    }
+  },
+  "files": [
+    "dist",
+    "CHANGELOG.md"
+  ],
+  "scripts": {
+    "build": "node build.mjs"
+  },
+  "peerDependencies": {
+    "react": ">=17"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    }
+  }
+}

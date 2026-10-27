@@ -1,0 +1,42 @@
+# Publishes the package to npm when a version tag is pushed (git tag v1.0.0 && git push --tags).
+#
+# Setup: Settings > Environments > "npm", secret NPM_TOKEN
+# (a granular token of the npm account randombible, publish rights on random-bible-verse only).
+# After the first release, switch the package to npm trusted publishing and drop the token.
+name: Publish
+
+on:
+  push:
+    tags: ['v*']
+
+permissions:
+  contents: read
+  id-token: write # npm provenance
+
+jobs:
+  npm:
+    runs-on: ubuntu-latest
+    environment: npm
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          registry-url: https://registry.npmjs.org
+
+      - name: Tag matches package.json version
+        run: |
+          version="v$(node -p "require('./package.json').version")"
+          if [ "$version" != "$GITHUB_REF_NAME" ]; then
+            echo "Tag $GITHUB_REF_NAME does not match package.json $version"
+            exit 1
+          fi
+
+      # The package has no dependencies, so there is nothing to install.
+      - run: npm run build
+      - run: npm test --if-present
+
+      - run: npm publish --provenance --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
