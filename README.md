@@ -22,6 +22,10 @@ Try every option in the
 [Bible verse widget customizer](https://random-bible.com/bible-verse-widget/), which also writes
 the embed code for you.
 
+On WordPress, install the
+[Random Bible: Verse of the Day Widget](https://wordpress.org/plugins/random-bible-verse-widget/)
+plugin instead. It adds the same widget as a block and a shortcode.
+
 ## Contents
 
 - [Quick start](#quick-start)

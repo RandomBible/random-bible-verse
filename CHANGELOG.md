@@ -4,6 +4,12 @@ All notable changes to `random-bible-verse` are listed here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and versions follow
 [semantic versioning](https://semver.org/).
 
+## 0.1.1 - 2026-11-02
+
+### Changed
+
+- README links to the WordPress plugin, and the package has more search keywords. No code changes.
+
 ## 0.1.0 - 2026-10-27
 
 First npm release.

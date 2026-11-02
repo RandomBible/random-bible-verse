@@ -1,6 +1,6 @@
 {
   "name": "random-bible-verse",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Bible verse of the day widget for websites, in six layouts. Embed script, web component and React component.",
   "keywords": [
     "bible",
@@ -11,6 +11,11 @@
     "widget",
     "web-component",
     "custom-element",
+    "daily-bible-verse",
+    "bible-widget",
+    "kjv",
+    "react-component",
+    "wordpress",
     "react"
   ],
   "homepage": "https://random-bible.com/bible-verse-widget/",
